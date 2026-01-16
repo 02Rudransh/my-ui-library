@@ -1,0 +1,448 @@
+/* src/components/DatePicker/DatePicker.module.css */
+
+.container {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  user-select: none;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+/* Input Field */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  padding-right: 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #111827;
+  transition: all 0.2s ease;
+  height: 40px;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, sans-serif;
+  cursor: pointer;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.input:hover:not(:disabled) {
+  border-color: #9ca3af;
+}
+
+.input.error {
+  border-color: #ef4444;
+}
+
+.input.error:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+}
+
+.input.disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+  opacity: 0.6;
+  border-color: #e5e7eb;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+/* Calendar Button */
+.calendarButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  /* background: transparent; */
+  cursor: pointer;
+  color: #6b7280;
+  border-radius: 4px;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.calendarButton:hover:not(:disabled) {
+  color: #374151;
+  background-color: #f3f4f6;
+}
+
+.calendarButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Calendar Popup */
+.calendarWrapper {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 240px;
+  animation: slideDown 0.2s ease;
+  padding: 12px;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Calendar Header */
+.calendarHeader {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.monthDisplay {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.monthName {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 600;
+}
+
+.year {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Day Names */
+.dayNames {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.dayName {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #242529;
+  padding: 4px 0;
+  user-select: none;
+}
+
+/* Days Grid */
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.day:hover:not(.disabledDay):not(.selected) {
+  background-color: #f3f4f6;
+}
+
+.day.selected {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
+
+.day.today:not(.selected) {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.day.disabledDay {
+  color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Calendar Footer */
+.calendarFooter {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: center;
+}
+
+.todayButton {
+  padding: 4px 12px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.2s;
+}
+
+.todayButton:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.todayButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Helper and Error Text */
+.helperText {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.errorText {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Size Variants */
+.small .input {
+  padding: 6px 10px;
+  padding-right: 36px;
+  font-size: 13px;
+  height: 36px;
+}
+
+.small .calendarButton {
+  width: 22px;
+  height: 22px;
+}
+
+.small .calendarWrapper {
+  width: 220px;
+  padding: 10px;
+}
+
+.small .day {
+  width: 26px;
+  height: 26px;
+  font-size: 11px;
+}
+
+.small .monthName {
+  font-size: 13px;
+}
+
+.small .year {
+  font-size: 12px;
+}
+
+.large .input {
+  padding: 10px 14px;
+  padding-right: 44px;
+  font-size: 15px;
+  height: 44px;
+}
+
+.large .calendarButton {
+  width: 28px;
+  height: 28px;
+}
+
+.large .calendarWrapper {
+  width: 260px;
+  padding: 16px;
+}
+
+.large .day {
+  width: 32px;
+  height: 32px;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .calendarWrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 240px;
+    max-width: calc(100% - 32px);
+    animation: popIn 0.2s ease;
+  }
+
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .fullWidth {
+    width: 100%;
+  }
+}
+
+/* Add these to src/components/DatePicker/DatePicker.module.css */
+
+/* Navigation */
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.navButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #6b7280;
+    border-radius: 4px;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.navButton:hover:not(:disabled) {
+    color: #374151;
+    background-color: #f3f4f6;
+}
+
+.navButton:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.monthDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 120px;
+}
+
+.monthName {
+    font-size: 14px;
+    color: #111827;
+    font-weight: 600;
+}
+
+.year {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Adjust calendar header for navigation */
+.calendarHeader {
+    margin-bottom: 12px;
+}
+
+/* Size variants for navigation */
+.small .navButton {
+    width: 26px;
+    height: 26px;
+}
+
+.small .monthDisplay {
+    min-width: 110px;
+}
+
+.small .monthName {
+    font-size: 13px;
+}
+
+.small .year {
+    font-size: 12px;
+}
+
+.large .navButton {
+    width: 32px;
+    height: 32px;
+}
+
+.large .monthDisplay {
+    min-width: 140px;
+}
+
+.large .monthName {
+    font-size: 15px;
+}
+
+.large .year {
+    font-size: 14px;
+}

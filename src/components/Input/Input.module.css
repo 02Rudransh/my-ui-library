@@ -1,0 +1,348 @@
+/* src/components/Input/Input.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  width: fit-content;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  display: block;
+  user-select: none;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.inputWrapper:hover:not(.disabled) {
+  border-color: #9ca3af;
+}
+
+.focused {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.error {
+  border-color: #ef4444;
+}
+
+.error.focused {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+}
+
+.disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+  opacity: 0.6;
+  border-color: #e5e7eb;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  /* background: transparent; */
+  color: #111827;
+  font-size: 14px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  color: #6b7280;
+}
+
+/* Sizes */
+.small .input {
+  padding: 6px 12px;
+  font-size: 13px;
+  height: 32px;
+}
+
+.small.hasLeftIcon .input {
+  padding-left: 40px;
+}
+
+.small.hasRightIcon .input {
+  padding-right: 40px;
+}
+
+.medium .input {
+  padding: 8px 12px;
+  font-size: 14px;
+  /* height: 40px; */
+}
+
+.medium.hasLeftIcon .input {
+  padding-left: 44px;
+}
+
+.medium.hasRightIcon .input {
+  padding-right: 44px;
+}
+
+.large .input {
+  padding: 10px 14px;
+  font-size: 16px;
+  height: 48px;
+}
+
+.large.hasLeftIcon .input {
+  padding-left: 48px;
+}
+
+.large.hasRightIcon .input {
+  padding-right: 48px;
+}
+
+/* Icons */
+.leftIcon, .rightIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leftIcon {
+  left: 12px;
+}
+
+.rightIcon {
+  right: 12px;
+}
+
+/* Search Icon */
+.searchIcon {
+  position: absolute;
+  outline: none;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  padding: 0;
+  z-index: 2;
+}
+
+.searchIcon:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.searchIcon:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.searchIcon:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.small .searchIcon {
+  width: 28px;
+  height: 28px;
+  right: 6px;
+}
+
+.small .searchIcon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.large .searchIcon {
+  width: 36px;
+  height: 36px;
+  right: 10px;
+}
+
+.large .searchIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Password Toggle */
+.passwordToggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  padding: 0;
+  z-index: 2;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.passwordToggle:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.passwordToggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.small .passwordToggle {
+  width: 28px;
+  height: 28px;
+  right: 6px;
+  font-size: 14px;
+}
+
+.large .passwordToggle {
+  width: 36px;
+  height: 36px;
+  right: 10px;
+  font-size: 18px;
+}
+
+/* Helper and Error Text */
+.helperText {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.errorText {
+  font-size: 12px;
+  color: #ef4444;
+  line-height: 1.4;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Number input - hide spinners */
+.input[type="number"]::-webkit-inner-spin-button,
+.input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .small .input {
+    font-size: 14px;
+  }
+  
+  .medium .input {
+    font-size: 16px;
+  }
+  
+  .large .input {
+    font-size: 18px;
+  }
+}
+
+/* Focus within styles */
+.inputWrapper:has(.input:focus) {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Ensure proper icon spacing when multiple right-side elements */
+.hasRightIcon .input {
+  padding-right: 40px;
+}
+
+.medium.hasRightIcon .input {
+  padding-right: 44px;
+}
+
+.large.hasRightIcon .input {
+  padding-right: 48px;
+}
+
+/* Search icon specific adjustments */
+.hasRightIcon .searchIcon {
+  right: 8px;
+}
+
+.small.hasRightIcon .searchIcon {
+  right: 6px;
+}
+
+.large.hasRightIcon .searchIcon {
+  right: 10px;
+}
+
+/* Password toggle specific adjustments */
+.hasRightIcon .passwordToggle {
+  right: 8px;
+}
+
+.small.hasRightIcon .passwordToggle {
+  right: 6px;
+}
+
+.large.hasRightIcon .passwordToggle {
+  right: 10px;
+}
