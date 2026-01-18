@@ -12,7 +12,7 @@ export { default as Dropdown } from './components/Dropdown';
 export { default as SearchBar } from './components/SearchBar';
 export { default as DatePicker } from './components/DatePicker';
 export { default as FilePicker } from './components/FilePicker';
-export { Navbar, NavbarItem, NavbarSubItem, NavbarDropdown } from './components/Navbar';
+// export { Navbar, NavbarItem, NavbarSubItem, NavbarDropdown } from './components/Navbar';
 export { default as SSOLogin } from './components/SSOLogin';
 export { default as SessionExpired } from './components/SessionExpired';
 
