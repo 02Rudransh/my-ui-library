@@ -1,5 +1,5 @@
 {
-  "name": "@yourname/my-ui-library",
+  "name": "@rudransh/my-ui-library",
   "version": "1.0.0",
   "description": "A complete React component library with reusable UI components",
   "type": "module",
@@ -24,12 +24,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/my-ui-library.git"
+    "url": "https://github.com/02Rudransh/my-ui-library.git" 
   },
   "bugs": {
-    "url": "https://github.com/yourusername/my-ui-library/issues"
+    "url": "https://github.com/02Rudransh/my-ui-library/issues"
   },
-  "homepage": "https://github.com/yourusername/my-ui-library#readme",
+  "homepage": "https://github.com/02Rudransh/my-ui-library#readme",
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
