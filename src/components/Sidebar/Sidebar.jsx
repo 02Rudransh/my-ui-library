@@ -76,7 +76,7 @@ const Sidebar = ({
 
       {/* Navigation Section */}
       <nav className={styles.navSec} role="navigation" aria-label="Primary">
-        <div className={styles.navContent} role="menubar">
+        <div className={styles.navSecContent} role="menubar">
           {enhancedChildren}
         </div>
       </nav>
